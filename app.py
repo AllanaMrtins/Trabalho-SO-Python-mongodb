@@ -7,8 +7,8 @@ def home():
     return jsonify(
         {
             "Sistema" : "SIGMON",
-            "Descricao": "Sistema Integrado de gestão de monitorias"
-            "Universidade": "UFPI"
+            "Descricao": "Sistema Integrado de gestão de monitorias",
+            "Universidade": "UFPI",
             "Status": "online"
         }
     )
