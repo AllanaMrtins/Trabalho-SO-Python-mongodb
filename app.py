@@ -1,29 +1,26 @@
-from flask import Flask, jsonify
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
-def home():
-    return jsonify(
-        {
-            "Sistema" : "SIGMON",
-            "Descricao": "Sistema Integrado de gestão de monitorias"
-            "Universidade": "UFPI"
-            "Status": "online"
-        }
-    )
+def login():
+    return render_template("login.html")
 
-@app.route("/health")
-def health():
-    return jsonify(
-        {
-            "status" : "ok"
-        }
-    )
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
+
+@app.route("/alunos")
+def alunos():
+    return render_template("alunos.html")
+
+@app.route("/monitores")
+def monitores():
+    return render_template("monitores.html")
+
+@app.route("/atendimentos")
+def atendimentos():
+    return render_template("atendimentos.html")
 
 if __name__ == "__main__":
-    app.run(
-        host="0.0.0.0",
-        port=5000,
-        debug=True
-    )
+    app.run(debug=True)
