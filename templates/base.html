@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Monitoria UFPI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>📚 Sistema de Monitoria UFPI</h1>
+
+    <nav>
+        <a href="/dashboard">📊 Dashboard</a>
+        <a href="/alunos">👨‍🎓 Alunos</a>
+        <a href="/monitores">🧑‍🏫 Monitores</a>
+        <a href="/atendimentos">📚 Atendimentos</a>
+        <a href="/login">🔐 Login</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    {% block content %}{% endblock %}
+
+</main>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

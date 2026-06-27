@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>📊 Dashboard</h2>
+
+<div class="card">
+    <p>👨‍🎓 Alunos: {{ dados.total_alunos }}</p>
+    <p>🧑‍🏫 Monitores: {{ dados.total_monitores }}</p>
+    <p>📚 Atendimentos: {{ dados.total_atendimentos }}</p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>👨‍🎓 Alunos</h2>
+
+<div class="card">
+    <form method="POST">
+        <input type="text" name="nome" placeholder="Nome do aluno" required>
+        <button type="submit">Cadastrar</button>
+    </form>
+</div>
+
+<div class="card">
+    <h3>Lista de Alunos</h3>
+
+    <table>
+        <tr>
+            <th>Nome</th>
+        </tr>
+
+        {% for a in alunos %}
+        <tr>
+            <td>{{ a.nome }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
