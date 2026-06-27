@@ -14,38 +14,29 @@ app.register_blueprint(dashboard_bp)
 
 
 @app.route("/")
-<<<<<<< HEAD
 def login():
     return render_template("login.html")
 
-@app.route("/dashboard")
-def dashboard():
+
+@app.route("/dashboard-page")
+def dashboard_page():
     return render_template("dashboard.html")
 
-@app.route("/alunos")
-def alunos():
+
+@app.route("/alunos-page")
+def alunos_page():
     return render_template("alunos.html")
 
-@app.route("/monitores")
-def monitores():
+
+@app.route("/monitores-page")
+def monitores_page():
     return render_template("monitores.html")
 
-@app.route("/atendimentos")
-def atendimentos():
+
+@app.route("/atendimentos-page")
+def atendimentos_page():
     return render_template("atendimentos.html")
 
-if __name__ == "__main__":
-    app.run(debug=True)
-=======
-def home():
-    return jsonify(
-        {
-            "Sistema": "SIGMON",
-            "Descricao": "Sistema Integrado de Gestão de Monitorias",
-            "Universidade": "UFPI",
-            "Status": "online"
-        }
-    )
 
 if __name__ == "__main__":
     app.run(
@@ -53,4 +44,3 @@ if __name__ == "__main__":
         port=5000,
         debug=True
     )
->>>>>>> dc255fab67160dbae874a5c1c874c760ffd12b13
