@@ -1,8 +1,8 @@
 from flask import Flask, render_template
 
-from routes.aluno_routes import aluno_bp
-from routes.monitor_routes import monitor_bp
-from routes.atendimento_routes import atendimento_bp
+from routes.alunos_routes import aluno_bp
+from routes.monitores_routes import monitor_bp
+from routes.atendimentos_routes import atendimento_bp
 from routes.dashboard_routes import dashboard_bp
 
 app = Flask(__name__)
