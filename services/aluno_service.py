@@ -11,3 +11,7 @@ class AlunoService:
         return AlunoRepository.buscar_por_matricula(
             matricula
         )
+
+    @staticmethod
+    def criar(aluno):
+        return AlunoRepository.inserir(aluno)
