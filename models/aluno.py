@@ -1,10 +1,11 @@
 class Aluno:
-    def __init__(self,matricula,nome,email,curso,periodo):
+    def __init__(self,matricula,nome,email,curso,periodo, disciplinas):
         self.__matricula = matricula
         self.__nome = nome
         self.__email = email
         self.__curso = curso
         self.__periodo = periodo
+        self.__disciplinas = disciplinas
 
     @property
     def matricula(self):
@@ -26,11 +27,16 @@ class Aluno:
     def periodo(self):
         return self.__periodo
 
+    @property
+    def disciplinas(self):
+        return self.__disciplinas
+
     def to_dict(self):
         return {
             "matricula": self.__matricula,
             "nome": self.__nome,
             "email": self.__email,
             "curso": self.__curso,
-            "periodo": self.__periodo
+            "periodo": self.__periodo,
+            "disciplinas": self.__disciplinas
         }
