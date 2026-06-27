@@ -12,35 +12,18 @@ class AtendimentoService:
     @staticmethod
     def criar(atendimento):
 
-        monitor_valido = (
-            MonitorRepository.monitor_pertence_a_disciplina(
-                atendimento.monitor_matricula,
-                atendimento.disciplina
-            )
-        )
+        # REGRA 1: monitor deve pertencer à disciplina
+        if not MonitorRepository.monitor_pertence_a_disciplina(
+            atendimento.monitor_matricula,
+            atendimento.disciplina
+        ):
+            raise Exception("Monitor não ministra esta disciplina.")
 
-        if not monitor_valido:
-            raise Exception(
-                "O monitor não é responsável por esta disciplina."
-            )
+        # REGRA 2: aluno deve estar matriculado na disciplina
+        if not AlunoRepository.aluno_esta_matriculado_na_disciplina(
+            atendimento.aluno_matricula,
+            atendimento.disciplina
+        ):
+            raise Exception("Aluno não está matriculado nesta disciplina.")
 
-        aluno_valido = (
-            AlunoRepository.aluno_esta_matriculado_na_disciplina(
-                atendimento.aluno_matricula,
-                atendimento.disciplina
-            )
-        )
-
-        if not aluno_valido:
-            raise Exception(
-                "O aluno não está matriculado nesta disciplina."
-            )
-
-        AtendimentoRepository.inserir(
-            atendimento
-        )
-
-        return {
-            "status": "sucesso",
-            "mensagem": "Atendimento registrado com sucesso."
-        }
+        return AtendimentoRepository.inserir(atendimento)
