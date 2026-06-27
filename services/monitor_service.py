@@ -11,3 +11,7 @@ class MonitorService:
         return MonitorRepository.buscar_por_matricula(
             matricula
         )
+
+    @staticmethod
+    def criar(monitor):
+        return MonitorRepository.inserir(monitor)
