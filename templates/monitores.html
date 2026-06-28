@@ -5,8 +5,13 @@
 <h2>🧑‍🏫 Monitores</h2>
 
 <div class="card">
-    <form method="POST">
+    <form action="/monitores-page" method="POST">
         <input type="text" name="nome" placeholder="Nome do monitor" required>
+        <input type="text" name="disciplina" placeholder="Disciplina que é monitor" required>
+        <input type="text" name="curso" placeholder="Curso" required>
+        <input type="number" name="periodo" placeholder="Período atual (Ex: 5)" required>
+        <input type="text" name="docente" placeholder="Docente da disciplina" required>
+        
         <button type="submit">Cadastrar</button>
     </form>
 </div>
@@ -14,14 +19,22 @@
 <div class="card">
     <h3>Lista de Monitores</h3>
 
-    <table>
+    <table border="1" style="width:100%; text-align:left; border-collapse: collapse;">
         <tr>
             <th>Nome</th>
+            <th>Disciplina</th>
+            <th>Curso</th>
+            <th>Período</th>
+            <th>Docente</th>
         </tr>
 
         {% for m in monitores %}
         <tr>
             <td>{{ m.nome }}</td>
+            <td>{{ m.disciplina }}</td>
+            <td>{{ m.curso }}</td>
+            <td>{{ m.periodo }}</td>
+            <td>{{ m.docente }}</td>
         </tr>
         {% endfor %}
     </table>

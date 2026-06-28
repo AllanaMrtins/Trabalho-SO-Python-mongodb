@@ -3,19 +3,15 @@ version: "3.9"
 services:
 
   app:
-    image: sigmon_app:latest
-
+    image: janieleb/sigmon_app:latest
     ports:
       - "5000:5000"
-
     environment:
       MONGO_URI: mongodb://mongo1:27017,mongo2:27017,mongo3:27017/?replicaSet=rs0
       DATABASE_NAME: sigmon
       SECRET_KEY: sigmon_ufpi_2026
-
     networks:
       - sigmon_network
-
     deploy:
       replicas: 2
       restart_policy:
@@ -23,18 +19,14 @@ services:
 
   mongo1:
     image: mongo:8.0
-
     command:
       - --replSet
       - rs0
       - --bind_ip_all
-
     volumes:
       - mongo1_data:/data/db
-
     networks:
       - sigmon_network
-
     deploy:
       placement:
         constraints:
@@ -42,31 +34,39 @@ services:
 
   mongo2:
     image: mongo:8.0
-
     command:
       - --replSet
       - rs0
       - --bind_ip_all
-
     volumes:
       - mongo2_data:/data/db
-
     networks:
       - sigmon_network
 
   mongo3:
     image: mongo:8.0
-
     command:
       - --replSet
       - rs0
       - --bind_ip_all
-
     volumes:
       - mongo3_data:/data/db
-
     networks:
       - sigmon_network
+
+  # 🚀 ADICIONADO EXATAMENTE AQUI:
+  mongo-express:
+    image: mongo-express
+    ports:
+      - "8081:8081"
+    environment:
+      # Conecta de forma segura no cluster (Replica Set) do Swarm
+      - ME_CONFIG_MONGODB_URL=mongodb://mongo1:27017,mongo2:27017,mongo3:27017/?replicaSet=rs0
+    networks:
+      - sigmon_network
+    deploy:
+      restart_policy:
+        condition: on-failure
 
 networks:
   sigmon_network:

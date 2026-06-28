@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Monitoria UFPI</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
@@ -13,12 +13,13 @@
     <h1>📚 Sistema de Monitoria UFPI</h1>
 
     <nav>
-        <a href="/dashboard">📊 Dashboard</a>
-        <a href="/alunos">👨‍🎓 Alunos</a>
-        <a href="/monitores">🧑‍🏫 Monitores</a>
-        <a href="/atendimentos">📚 Atendimentos</a>
-        <a href="/login">🔐 Login</a>
+        <a href="/dashboard-page">📊 Dashboard</a>
+        <a href="/alunos-page">👨‍🎓 Alunos</a>
+        <a href="/monitores-page">🧑‍🏫 Monitores</a>
+        <a href="/atendimentos-page">📚 Atendimentos</a>
+        <a href="/">🔐 Login</a>
     </nav>
+
 </header>
 
 <main class="container">
@@ -27,7 +28,7 @@
 
 </main>
 
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 </html>

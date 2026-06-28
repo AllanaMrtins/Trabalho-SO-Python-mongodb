@@ -6,6 +6,9 @@ class AtendimentoRepository:
 
     @staticmethod
     def inserir(atendimento):
+        if isinstance(atendimento, dict):
+            return AtendimentoRepository.collection.insert_one(atendimento)
+            
         return AtendimentoRepository.collection.insert_one(
             atendimento.to_dict()
         )
@@ -36,3 +39,7 @@ class AtendimentoRepository:
                 {"_id": 0}
             )
         )
+    
+    @staticmethod
+    def contar():
+        return AtendimentoRepository.collection.count_documents({})

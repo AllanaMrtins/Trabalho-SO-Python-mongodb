@@ -27,3 +27,13 @@ class AtendimentoService:
             raise Exception("Aluno não está matriculado nesta disciplina.")
 
         return AtendimentoRepository.inserir(atendimento)
+    
+    @staticmethod
+    def salvar(dados):
+        # Insere o dicionário vindo do formulário direto no repositório de atendimentos
+        return AtendimentoRepository.inserir(dados)
+    
+    @staticmethod
+    def contar():
+        return AtendimentoRepository.contar()
+

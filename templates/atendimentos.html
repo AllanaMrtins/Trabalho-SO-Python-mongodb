@@ -5,23 +5,51 @@
 <h2>📚 Atendimentos</h2>
 
 <div class="card">
-    <form method="POST">
-        <input type="text" name="descricao" placeholder="Descrição" required>
-        <button type="submit">Registrar</button>
+    <form action="/atendimentos-page" method="POST">
+        
+        <div style="display: flex; gap: 15px; margin-bottom: 15px; align-items: flex-end;">
+            
+            <div style="flex: 3;">
+                <label for="tipo" style="display: block; margin-bottom: 5px; font-weight: bold;">Tipo de Monitoria:</label>
+                <select name="tipo" id="tipo" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 14px;">
+                    <option value="Presencial">Presencial</option>
+                    <option value="Remota">Remota</option>
+                </select>
+            </div>
+
+            <div style="flex: 7;">
+                <label for="disciplina" style="display: block; margin-bottom: 5px; font-weight: bold;">Disciplina Desejada:</label>
+                <input type="text" id="disciplina" name="disciplina" placeholder="Ex: Sistemas Operacionais, Redes" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 14px;">
+            </div>
+
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label for="descricao" style="display: block; margin-bottom: 5px; font-weight: bold;">Descrição / Dúvida:</label>
+            <textarea id="descricao" name="descricao" placeholder="Descreva brevemente sua dúvida ou necessidade..." rows="4" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-family: Arial, sans-serif; font-size: 14px; resize: vertical;"></textarea>
+        </div>
+        
+        <button type="submit" style="padding: 10px 20px; font-size: 14px; cursor: pointer;">Solicitar Atendimento</button>
     </form>
 </div>
 
-<div class="card">
-    <h3>Histórico</h3>
+<div class="card" style="margin-top: 25px;">
+    <h3>Lista de Atendimentos</h3>
 
-    <table>
-        <tr>
-            <th>Descrição</th>
+    <table border="1" style="width:100%; text-align:left; border-collapse: collapse;">
+        <tr style="background-color: #f2f2f2;">
+            <th style="padding: 10px;">Tipo</th>
+            <th style="padding: 10px;">Disciplina</th>
+            <th style="padding: 10px;">Monitor Responsável</th> <!-- ✨ ADICIONADO AQUI NO CABEÇALHO -->
+            <th style="padding: 10px;">Descrição/Dúvida</th>
         </tr>
 
         {% for a in atendimentos %}
         <tr>
-            <td>{{ a.descricao }}</td>
+            <td style="padding: 10px;">{{ a.tipo }}</td>
+            <td style="padding: 10px;">{{ a.disciplina }}</td>
+            <td style="padding: 10px; font-weight: bold; color: #2c3e50;">{{ a.monitor_responsavel }}</td>
+            <td style="padding: 10px;">{{ a.descricao }}</td>
         </tr>
         {% endfor %}
     </table>

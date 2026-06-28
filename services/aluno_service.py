@@ -15,3 +15,13 @@ class AlunoService:
     @staticmethod
     def criar(aluno):
         return AlunoRepository.inserir(aluno)
+    
+    @staticmethod
+    def salvar(dados):
+        # Repassa o dicionário vindo do Flask para o método criar que você já possui
+        return AlunoService.criar(dados)
+    
+    @staticmethod
+    def contar():
+        return AlunoRepository.contar()
+
