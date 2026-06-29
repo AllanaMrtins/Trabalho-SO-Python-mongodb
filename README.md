@@ -48,20 +48,20 @@ O banco de dados utiliza **MongoDB com Replica Set de 3 nós** para garantir alt
 
 ```
 Trabalho-SO-Python-mongodb/
-├── app.py                        # Entry-point da aplicação Flask
-├── requirements.txt              # Dependências Python
+├── app.py                        
+├── requirements.txt              
 │
 ├── config/
-│   └── settings.py               # MONGO_URI, DATABASE_NAME, SECRET_KEY
+│   └── settings.py
 │
 ├── database/
-│   ├── connection.py             # Singleton de conexão com MongoDB
-│   └── replica_set.py            # Status do Replica Set
+│   ├── connection.py             
+│   └── replica_set.py            
 │
 ├── models/
-│   ├── aluno.py                  # Classe Aluno com to_dict()
-│   ├── monitor.py                # Classe Monitor com to_dict()
-│   └── atendimento.py            # Classe Atendimento com to_dict()
+│   ├── aluno.py                  
+│   ├── monitor.py                
+│   └── atendimento.py            
 │
 ├── repositories/
 │   ├── aluno_repository.py
@@ -86,7 +86,7 @@ Trabalho-SO-Python-mongodb/
 │   ├── atendimentos_routes.py
 │   └── dashboard_routes.py
 │
-├── templates/                    # HTML Jinja2
+├── templates/                    
 │   ├── base.html
 │   ├── login.html
 │   ├── dashboard.html
@@ -100,9 +100,9 @@ Trabalho-SO-Python-mongodb/
 │
 └── docker/
     ├── Dockerfile
-    ├── docker-compose.yml        # Ambiente local
-    ├── docker-stack.yml          # Produção com Docker Swarm
-    └── init-replica.js           # Inicialização do Replica Set
+    ├── docker-compose.yml        
+    ├── docker-stack.yml          
+    └── init-replica.js           
 ```
 
 ---
